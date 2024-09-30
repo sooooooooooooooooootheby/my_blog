@@ -1,0 +1,265 @@
+@import "@/assets/style/theme/handle.scss";
+
+.friend {
+    width: 100vw;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: transparent;
+        border-radius: 100%;
+    }
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: transparent;
+        width: 36px;
+        height: 36px;
+    }
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: transparent;
+        width: 36px;
+        height: 36px;
+        animation: spin89345 1s linear infinite;
+    }
+    @keyframes spin89345 {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        .friendListBox {
+            width: 1296px;
+            min-height: 95vh;
+
+            margin: 0 auto;
+
+            display: flex;
+            align-content: center;
+            flex-wrap: wrap;
+
+            .friendList {
+                width: 250px;
+                height: 150px;
+                margin: 12px;
+                padding: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-radius: 12px;
+                opacity: 0;
+                position: relative;
+                top: 100px;
+                @include border_color("border");
+                @include background_color("card-background");
+                @include box_shadow("box-shadow");
+
+                .avatar {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 64px;
+                    align-self: flex-end;
+                }
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    .username {
+                        font-size: 0.9rem;
+                        @include font_color("tint-font-color-1");
+                    }
+                    .bio {
+                        margin-top: 4px;
+                        font-size: 0.9rem;
+                        @include font_color("tint-font-color-2");
+                    }
+                }
+                .link {
+                    display: flex;
+                    a {
+                        margin-right: 6px;
+                        @include font_color("a-font-color");
+                    }
+                    a:hover {
+                        @include font_color("a-font-color-hover");
+                    }
+                }
+            }
+            .friendList:hover {
+                @include background_color("card-background-hover");
+            }
+        }
+        .indicate {
+            height: 5vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: centere;
+            align-items: center;
+
+            svg {
+                position: absolute;
+                font-size: 1rem;
+
+                animation: moveUpAndDown 1s infinite;
+                animation-timing-function: cubic-bezier(0.43, 0.16, 0.65, 1);
+
+                @include font_color("tint-font-color-2");
+            }
+            @keyframes moveUpAndDown {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(10px);
+                }
+            }
+        }
+        .requestFriend {
+            width: 1000px;
+
+            margin: 0 auto;
+            padding: 32px 0 64px 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .explain {
+                width: 100%;
+                ul {
+                    .title {
+                        margin-top: 24px;
+                        list-style: none;
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                    }
+                    li {
+                        margin: 5px 0;
+                        font-size: 0.9rem;
+                    }
+                    li::marker {
+                        color: #dcdfe6;
+                    }
+                }
+            }
+
+            form {
+                width: calc(50% - 48px);
+
+                margin-top: 48px;
+                padding: 24px;
+
+                display: flex;
+                flex-direction: column;
+
+                border-radius: 12px;
+
+                @include border_color("border");
+                @include box_shadow("box-shadow");
+
+                label {
+                    margin-top: 8px;
+                    span {
+                        width: 100%;
+                        display: block;
+                    }
+                    input {
+                        width: calc(100% - 12px);
+                        padding: 6px;
+
+                        border-radius: 6px;
+                        border: none;
+                        outline: none;
+                        @include border_color("border");
+                        @include background-color("background");
+                    }
+                    input:focus {
+                        @include box_shadow("box-shadow");
+                    }
+                }
+                button {
+                    width: 100%;
+                    margin-top: 24px;
+                    padding: 6px;
+
+                    border-radius: 6px;
+                    border: none;
+                    outline: none;
+                    @include border_color("border");
+                }
+                button:hover {
+                    color: #ffffff;
+                    @include background-color("theme-green-background");
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .friend {
+        .main {
+            .friendListBox {
+                width: 100vw;
+                justify-content: center;
+            }
+            .requestFriend {
+                width: calc(100vw - 40px);
+                padding: 0 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .friend {
+        height: auto;
+
+        .main {
+            .friendListBox {
+                width: calc(100vw - 40px);
+                min-height: auto;
+                padding: 74px 20px 32px 20px;
+                flex-direction: column;
+
+                .friendList {
+                    width: calc(100% - 48px);
+                    margin: 12px 0;
+                }
+            }
+            .requestFriend {
+                width: calc(100vw - 40px);
+
+                padding: 0 20px;
+
+                flex-direction: column;
+
+                .explain {
+                    width: 100%;
+                }
+                .interval {
+                    width: 100%;
+                    height: 0px;
+                }
+                form {
+                    width: calc(100% - 40px);
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}

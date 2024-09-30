@@ -1,0 +1,40 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@mdit/plugin-img-lazyload": "^0.13.1",
+    "autolog.js": "^2.2.1",
+    "axios": "^1.7.7",
+    "gsap": "^3.12.5",
+    "highlightjs": "^9.16.2",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-highlightjs": "^4.1.0",
+    "markdown-it-linkify-images": "^4.0.0",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "pinia": "^2.1.7",
+    "sass": "^1.78.0",
+    "socket.io-client": "^4.7.5",
+    "vue": "^3.4.29",
+    "vue-clipboard2": "^0.3.3",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.8.0",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.23.0",
+    "prettier": "^3.2.5",
+    "vite": "^5.3.1"
+  }
+}

@@ -1,0 +1,31 @@
+@import "@/assets/style/theme/handle.scss";
+
+* {
+    @include font_color("font-color");
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    @include background_color("background");
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+::selection {
+    background-color: #eed1a6;
+}
+
+a {
+    @include font_color("theme-green-background");
+}
+a:hover {
+    @include font_color("a-font-color-hover");
+}
+
+@import "@/assets/style/articleTheme.scss";

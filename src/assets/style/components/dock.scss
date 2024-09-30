@@ -1,0 +1,229 @@
+@import "style/theme/handle.scss";
+
+.dock {
+    width: calc(100vw - 512px);
+    height: 64px;
+
+    padding: 0 256px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    @include background_color("background");
+
+    .siteInfo {
+        .siteInfoLogo {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+        }
+        .iconfont {
+            display: none;
+        }
+    }
+    .articleInfo {
+        width: 100%;
+        overflow: hidden;
+        padding-left: 16px;
+        transition: 1s;
+        .breadcrumb {
+            font-size: 0.7rem;
+            @include font_color("tint-font-color-2");
+        }
+    }
+    .dockMenu {
+        .dockMainMenu {
+            display: flex;
+
+            .dockMenuItem {
+                padding: 0 20px;
+                display: flex;
+                cursor: pointer;
+
+                .iconfont {
+                    font-size: 18px;
+                }
+                span {
+                    margin-left: 6px;
+                }
+            }
+            .dockMenuItem:hover {
+                * {
+                    color: inherit !important;
+                    @include font_color("font-color");
+                }
+            }
+            .tintText {
+                * {
+                    @include font_color("tint-font-color-2");
+                }
+            }
+        }
+        .dockMainMenu:hover .dockMenuItem {
+            * {
+                @include font_color("tint-font-color-2");
+            }
+        }
+        .dockSubmenu {
+            width: 100vw;
+            height: 100vh;
+
+            pointer-events: none;
+
+            position: absolute;
+            top: 64px;
+            left: 0;
+
+            transition: 1s;
+
+            .dockSubmenuContent {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+                @include background_color("background");
+                .dockSubmenuItemList {
+                    width: 576px;
+                    height: 0;
+                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    .dockSubmenuItemListItem {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin: 0 12px 12px 0;
+                        cursor: pointer;
+
+                        img {
+                            width: 180px;
+                            height: 100px;
+                            margin-bottom: 6px;
+                            border-radius: 12px;
+                        }
+
+                        a {
+                            display: flex;
+                            flex-direction: column;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+            .dockSubmenuBackground {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                backdrop-filter: blur(15px);
+                -webkit-backdrop-filter: blur(15px);
+                @include background_color("card-background");
+            }
+        }
+        .showDockSubmenu {
+            pointer-events: auto;
+            .dockSubmenuContent {
+                .dockSubmenuItemList {
+                    height: auto;
+                    padding: 20px;
+                }
+            }
+            .dockSubmenuBackground {
+                opacity: 1;
+            }
+        }
+    }
+    .dockControl {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .control_item {
+            width: 20px;
+            height: 20px;
+            margin-left: 18px;
+        }
+        .theme {
+            .button {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .dock {
+        width: calc(100vw - 32px);
+        padding: 0 16px;
+        .siteInfo {
+            display: flex;
+            align-items: center;
+            .iconfont {
+                display: block;
+                margin-left: 12px;
+                width: 16px;
+                // transform: rotateY(180deg);
+            }
+        }
+        .dockMenu {
+            width: 100vw;
+            height: calc(100vh - 64px);
+
+            position: fixed;
+            top: 35px;
+            left: 0;
+            z-index: -1;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.5s;
+
+            @include background_color("background");
+
+            .dockMainMenu {
+                padding: 10px 20px;
+                flex-direction: column;
+
+                .dockMenuItem {
+                    margin: 12px 0;
+                    padding: 0;
+
+                    .iconfont {
+                        font-size: 20px;
+                    }
+                    span {
+                        font-size: 1.1rem;
+                    }
+                }
+                .dockMenuItemMore {
+                    display: none;
+                }
+            }
+            .dockSubmenu {
+                width: calc(100vw - 40px);
+                height: auto;
+                position: static;
+                padding: 20px;
+                .dockSubmenuContent {
+                    .dockSubmenuItemList {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+        }
+        .showDockMenu {
+            top: 64px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}

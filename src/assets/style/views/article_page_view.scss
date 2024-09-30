@@ -1,0 +1,172 @@
+@import "@/assets/style/theme/handle.scss";
+
+.article {
+    width: 100vw;
+    height: auto;
+    padding-top: 64px;
+    display: flex;
+    justify-content: center;
+
+    .main {
+        width: 800px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .info {
+            width: 500px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+
+            .brief {
+                width: 400px;
+                margin: 12px 0;
+                text-align: center;
+                font-size: 0.9rem;
+                @include font_color("tint-font-color-1");
+            }
+            .author {
+                width: 100%;
+                padding: 12px 0;
+                display: flex;
+                align-items: center;
+                @include border_top_color("border");
+                .avatar {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 42px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .text {
+                    margin-left: 12px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    p {
+                        font-size: 0.8rem;
+                        @include font_color("tint-font-color-1");
+                    }
+                }
+            }
+        }
+
+        .cover {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 800px;
+                height: 450px;
+                border-radius: 12px;
+            }
+        }
+
+        .content {
+            width: 748px;
+            margin: 0 auto;
+        }
+
+        .tag {
+            width: 500px;
+            padding: 24px 0;
+            span {
+                margin-right: 12px;
+                font-size: 14px;
+                @include font_color("tint-font-color-1");
+            }
+        }
+    }
+    .track {
+        width: 300px;
+        margin-top: 32px;
+        padding: 0 12px;
+
+        .trackBox {
+            padding: 0px 20px;
+            position: fixed;
+
+            .toc {
+                width: calc(300px - 40px);
+                min-height: 100px;
+            }
+            .schedule {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                .ring {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 999px;
+                    border: 2px solid #839476;
+                }
+                span {
+                    margin-left: 6px;
+                    color: #839476;
+                    span {
+                        cursor: pointer;
+                    }
+                }
+                .back {
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .article {
+        .empty {
+            display: none;
+        }
+        .main {
+            width: 80vw;
+        }
+        .track {
+            width: 20vw;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .article {
+        width: 100vw;
+        .main {
+            width: 100vw;
+            margin-top: 0;
+            .info {
+                width: 90%;
+                .brief {
+                    width: 100%;
+                    text-align: center;
+                    font-size: 0.9rem;
+                }
+            }
+            .cover {
+                img {
+                    width: 100vw;
+                    height: auto;
+                    border-radius: 0;
+                }
+            }
+            .content {
+                width: calc(100vw - 24px);
+            }
+            .tag {
+                width: calc(100vw - 48px);
+                padding: 24px;
+            }
+        }
+        .track {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,286 @@
+@import "style/theme/handle.scss";
+
+.about {
+    width: 100vw;
+    height: auto;
+
+    .info {
+        width: 60%;
+        min-width: 1200px;
+        height: 100vh;
+
+        margin: 0 auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .info_main {
+            width: 100%;
+            height: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .info_main_introduce {
+                width: 50%;
+                margin-top: 400px;
+
+                .info_main_introduce_title1 {
+                    margin: 0;
+                    font-size: 3rem;
+                    opacity: 0;
+                    @include font_color("font-color");
+                }
+                .info_main_introduce_title2 {
+                    width: 100%;
+                    margin: 0;
+                    font-size: 2rem;
+                    opacity: 0;
+                    @include font_color("font-color");
+                }
+                .info_main_introduce_title2::after {
+                    content: " Sooooooooooooooooootheby";
+                }
+                p {
+                    width: 500px;
+                    margin: 10px 0;
+                    opacity: 0;
+                    @include font_color("tint-font-color-1");
+                }
+            }
+
+            .info_main_avatar {
+                width: 50%;
+
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+
+                .info_main_avatar_bg {
+                    width: 0px;
+                    height: 0px;
+                    position: absolute;
+                    z-index: -1;
+                    background-image: linear-gradient(-45deg, #849476 50%, #ebdcac 50%);
+                    filter: blur(68px);
+                }
+                img {
+                    width: 250px;
+                    height: 250px;
+                }
+            }
+        }
+        .info_indicate {
+            position: relative;
+            svg {
+                position: absolute;
+                font-size: 1rem;
+
+                animation: moveUpAndDown 1s infinite;
+                animation-timing-function: cubic-bezier(0.43, 0.16, 0.65, 1);
+
+                @include font_color("tint-font-color-2");
+            }
+            @keyframes moveUpAndDown {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(10px);
+                }
+            }
+        }
+    }
+    .aboutme {
+        width: 800px;
+
+        margin: 0 auto;
+        padding: 50px 0;
+        margin-top: 400px;
+
+        .aboutme_title {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            opacity: 0;
+        }
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+        .aboutme_ul {
+            display: flex;
+            opacity: 0;
+
+            .aboutme_ul_title {
+                width: 150px;
+            }
+
+            .aboutme_ul_li {
+                margin: 6px;
+                padding: 4px 8px;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                @include border_color("border");
+                @include background_color("card-background");
+            }
+            .aboutme_ul_li:hover {
+                @include background_color("card-background-hover");
+            }
+
+            .aboutme_ul_card {
+                width: 620px;
+                height: auto;
+                margin: 6px 0 6px 10px;
+                padding: 20px;
+                border-radius: 12px;
+                position: relative;
+                overflow: hidden;
+                @include border_color("border");
+
+                p {
+                    @include font_color("tint-font-color-1");
+                }
+
+                .aboutme_ul_card_Github_chart {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                .aboutme_ul_card_Education_name {
+                    font-size: 1.2rem;
+                    @include font_color("font-color");
+                }
+
+                .aboutme_ul_card_Education_school_badge {
+                    position: absolute;
+                    top: -60%;
+                    right: 5%;
+                    opacity: 0.4;
+                }
+            }
+        }
+        .aboutme_link {
+            li {
+                cursor: pointer;
+                a {
+                    text-decoration: none;
+                    @include font_color("font-color");
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .about {
+        .info {
+            width: 100%;
+            min-width: 100vw;
+            .info_main {
+                justify-content: space-around;
+                .info_main_introduce {
+                    width: 40%;
+                    .info_main_introduce_title2::after {
+                        content: " S22y";
+                    }
+                    p {
+                        width: 100%;
+                    }
+                }
+                .info_main_avatar {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .about {
+        .info {
+            width: 100vw;
+            min-width: 100vw;
+            height: calc(100vh - 64px);
+
+            .info_main {
+                flex-direction: column;
+                justify-content: center;
+
+                .info_main_introduce {
+                    width: calc(100vw - 40px);
+                    margin-top: 200px;
+                    padding: 20px;
+                    order: 1;
+
+                    .info_main_introduce_title1 {
+                        font-size: 2rem;
+                    }
+                    .info_main_introduce_title2 {
+                        font-size: 1rem;
+                    }
+                    .info_main_introduce_title2::after {
+                        content: " S22y";
+                    }
+                    p {
+                        width: 100%;
+                        font-size: 0.9rem;
+                    }
+                }
+
+                .info_main_avatar {
+                    width: 100%;
+                    justify-content: center;
+                    margin-top: 200px;
+
+                    img {
+                        width: 180px;
+                        height: 180px;
+                    }
+                }
+            }
+            .info_indicate {
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        .aboutme {
+            width: calc(100vw - 40px);
+            margin-bottom: 0;
+            padding: 100px 20px 0 20px;
+
+            .aboutme_ul {
+                display: block;
+
+                .aboutme_ul_title {
+                    margin-top: 12px;
+                }
+                .aboutme_ul_li {
+                    display: inline-block;
+                    margin: 6px 12px 6px 0;
+                }
+                .aboutme_ul_card {
+                    width: calc(100% - 20px);
+                    margin: 6px 12px 6px 0;
+                    padding: 10px;
+
+                    p {
+                        font-size: 0.8rem;
+                    }
+                    .aboutme_ul_card_Github_chart {
+                        width: 100%;
+                    }
+                    .aboutme_ul_card_Education_name {
+                        font-size: 1rem;
+                    }
+                    .aboutme_ul_card_Education_school_badge {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

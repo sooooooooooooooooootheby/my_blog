@@ -1,0 +1,178 @@
+@import "style/theme/handle.scss";
+
+.article {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: transparent;
+        border-radius: 100%;
+    }
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: transparent;
+        width: 36px;
+        height: 36px;
+    }
+    .loader {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: transparent;
+        width: 36px;
+        height: 36px;
+        animation: spin89345 1s linear infinite;
+    }
+    @keyframes spin89345 {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .main {
+        width: 50%;
+        min-width: 800px;
+        min-height: calc(100vh - 150px);
+
+        padding-top: 150px;
+
+        display: flex;
+        align-items: flex-start;
+
+        .list {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            .articleList {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                li {
+                    width: 90%;
+                    padding: 10px 0;
+                    list-style: none;
+                    position: relative;
+                    top: 100px;
+                    opacity: 0;
+                    @include border_bottom_color(border, 1px);
+
+                    > div {
+                        width: calc(110% - 40px);
+                        padding: 20px;
+                        position: relative;
+                        left: -5%;
+                        border-radius: 12px;
+                    }
+                    > div:hover {
+                        @include background_color("card-background");
+                    }
+
+                    div {
+                        a {
+                            text-decoration: none;
+
+                            .title {
+                                margin-bottom: 10px;
+                                .titleText {
+                                    font-size: 1.1rem;
+                                    font-weight: bold;
+                                }
+                            }
+                            .info {
+                                display: flex;
+                                font-size: 0.8rem;
+                                flex-wrap: wrap;
+
+                                .tagList {
+                                    margin-right: 12px;
+
+                                    span {
+                                        margin-right: 4px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .paging {
+                width: 100%;
+
+                margin: 32px 0;
+
+                opacity: 0;
+
+                display: flex;
+                justify-content: center;
+
+                li {
+                    list-style: none;
+                    margin: 12px;
+                    padding: 6px;
+
+                    border-radius: 6px;
+                    cursor: pointer;
+                    @include border_color("border");
+                }
+                .isThis {
+                    @include box_shadow("box-shadow");
+                    @include background_color("card-background");
+                }
+            }
+        }
+        .overview {
+            width: calc(40% - 40px);
+            padding: 20px;
+
+            .articleCount {
+                span {
+                    font-size: 1.5rem;
+                }
+            }
+            .classes {
+                margin-top: 16px;
+                .title {
+                    list-style: none;
+                    margin-bottom: 6px;
+
+                    span {
+                        font-size: 1.5rem;
+                    }
+                }
+                .item {
+                    cursor: pointer;
+                    margin-bottom: 4px;
+                    list-style: none;
+                }
+                .item:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .article {
+        .main {
+            min-width: calc(100vw - 40px);
+            margin-top: 50px;
+            padding: 0 20px;
+            flex-direction: column;
+
+            .list {
+                margin-top: 24px;
+                width: 100%;
+            }
+        }
+    }
+}
