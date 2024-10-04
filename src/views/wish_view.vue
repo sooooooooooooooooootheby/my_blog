@@ -43,7 +43,7 @@
             </li>
             <li>
                 <span class="li_title">微信:</span>
-                <img src="/Wechat sponsorship.webp" alt="Wechat sponsorship" />
+                <img src="/wish/Wechat sponsorship.webp" alt="Wechat sponsorship" />
             </li>
         </ul>
     </div>

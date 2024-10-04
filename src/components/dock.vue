@@ -25,16 +25,16 @@
                 <div class="dockSubmenuContent">
                     <ul class="dockSubmenuItemList">
                         <li class="dockSubmenuItemListItem" @click="pageJump('wish')">
-                            <img src="/card1.webp" alt="card" />
+                            <img src="/dock/card1.webp" alt="card" />
                             <span>my wish</span>
                         </li>
                         <li class="dockSubmenuItemListItem" @click="pageJump('target')">
-                            <img src="/card2.webp" alt="card" />
+                            <img src="/dock/card2.webp" alt="card" />
                             <span>my target</span>
                         </li>
                         <li class="dockSubmenuItemListItem" @click="pageJump('target')">
                             <a href="https://github.com/sooooooooooooooooootheby/sooooooooooooooooootheby/issues/new" target="_blank">
-                                <img src="/card3.webp" alt="card" />
+                                <img src="/dock/card3.webp" alt="card" />
                                 <span>message board</span>
                             </a>
                         </li>
