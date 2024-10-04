@@ -155,6 +155,9 @@ export default {
             this.titleAnimation();
         }, 4000);
         this.scrollTriggerAnimation();
+        // 禁用 console.warn
+        const originalWarn = console.warn;
+        console.warn = () => {};
     }
 };
 </script>
