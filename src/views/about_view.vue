@@ -50,6 +50,10 @@
                 </li>
             </ul>
         </div>
+        <div class="reaction">
+            <span class="reaction_title">What do you think of my website?</span>
+            <reaction :emojiListPath="'https://blog.sooooooooooooooooootheby.top/emoji.json'" :articleID="0" />
+        </div>
     </div>
 </template>
 
@@ -57,8 +61,12 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+import reaction from "@/components/reaction.vue";
 
 export default {
+    components: {
+        reaction
+    },
     data() {
         return {
             hello: "hello",

@@ -131,10 +131,12 @@ export default {
 
 .reactionList {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .reaction li {
     margin-right: 6px;
+    margin-bottom: 6px;
     padding: 4px 6px;
     list-style: none;
     background-color: #ebebebbf;

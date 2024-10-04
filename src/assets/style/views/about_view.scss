@@ -173,6 +173,18 @@
             }
         }
     }
+    .reaction {
+        width: 800px;
+
+        margin: 0 auto;
+        padding-bottom: 128px;
+
+        .reaction_title {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+    }
 }
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .about {
