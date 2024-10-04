@@ -170,7 +170,6 @@
                 display: block;
                 margin-left: 12px;
                 width: 16px;
-                // transform: rotateY(180deg);
             }
         }
         .dockMenu {
@@ -223,6 +222,7 @@
         .showDockMenu {
             top: 64px;
             opacity: 1;
+            pointer-events: auto;
             .dockSubmenu {
                 pointer-events: auto;
             }
