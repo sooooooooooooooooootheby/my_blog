@@ -22,11 +22,11 @@
                         </div>
                     </li>
                 </ul>
-                <ul class="paging" ref="paging">
+                <!-- <ul class="paging" ref="paging">
                     <li v-for="item in page" :key="item" @click="redirect(item)" :class="{ isThis: item === currentPage }">
                         {{ item }}
                     </li>
-                </ul>
+                </ul> -->
             </div>
             <div class="overview">
                 <p class="articleCount">
@@ -88,7 +88,7 @@ export default {
 
             return `${month}${day} ${year}`;
         },
-        // 右边的动画
+        // 动画
         listAnimation() {
             const timeline = gsap.timeline({ delay: 1 });
             const friendListElements = Object.values(this.$refs);
@@ -105,13 +105,13 @@ export default {
                     "-=0.8"
                 );
             });
-            timeline.to(this.$refs.paging, {
-                opacity: 1
-            })
+            // timeline.to(this.$refs.paging, {
+            //     opacity: 1
+            // })
         },
         // 请求文章列表
         getArticleList(start, page) {
-            this.handleArticle.getArticleList({ start, count: 5 }, () => {
+            this.handleArticle.getArticleList({ start, count: 999 }, () => {
                 // 修改loader的状态
                 this.loader = false;
                 // 动画
@@ -125,15 +125,15 @@ export default {
             });
         },
         // 点击分页
-        redirect(page) {
-            this.start = (page - 1) * 5;
-            this.currentPage = page;
-            this.getArticleList(this.start, page);
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        },
+        // redirect(page) {
+        //     this.start = (page - 1) * 5;
+        //     this.currentPage = page;
+        //     this.getArticleList(this.start, page);
+        //     window.scrollTo({
+        //         top: 0,
+        //         behavior: "smooth"
+        //     });
+        // },
         // 请求指定分类文章
         // 节流函数
         throttle(func, limit) {
