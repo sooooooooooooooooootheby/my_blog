@@ -35,14 +35,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    data() {
-        return {};
-    }
-};
-</script>
-
 <style lang="scss" scoped>
 @import url("style/views/wish_view.scss");
 </style>
