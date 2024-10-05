@@ -52,7 +52,7 @@
         </div>
         <div class="reaction">
             <span class="reaction_title">What do you think of my website?</span>
-            <reaction :emojiListPath="'https://blog.sooooooooooooooooootheby.top/emoji.json'" :articleID="0" />
+            <reaction :emojiListPath="'https://blog.sooooooooooooooooootheby.top/emoji.json'" :emojiRequest="'https://cos.sooooooooooooooooootheby.top/emoji/'" :id="0" :request="'https://blog.sooooooooooooooooootheby.top/api/'" />
         </div>
     </div>
 </template>

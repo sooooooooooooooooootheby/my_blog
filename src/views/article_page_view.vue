@@ -9,25 +9,18 @@
                 <p class="brief">{{ handleArticle.articleData.article.brief }}</p>
                 <div class="author">
                     <div class="text">
-                        <p>
-                            create: {{ handleTime(handleArticle.articleData.article.create_time) }}
-                        </p>
-                        <p v-if="updateTime">
-                            update: {{ handleTime(handleArticle.articleData.article.update_time) }}
-                        </p>
+                        <p>create: {{ handleTime(handleArticle.articleData.article.create_time) }}</p>
+                        <p v-if="updateTime">update: {{ handleTime(handleArticle.articleData.article.update_time) }}</p>
                     </div>
                 </div>
             </div>
 
-            <reaction :emojiListPath="'https://blog.sooooooooooooooooootheby.top/emoji.json'" :articleID="id" />
+            <reaction :emojiListPath="'https://blog.sooooooooooooooooootheby.top/emoji.json'" :emojiRequest="'https://cos.sooooooooooooooooootheby.top/emoji/'" :id="id" :request="'https://blog.sooooooooooooooooootheby.top/api/'" />
 
             <div class="content" v-html="compiledMarkdown"></div>
 
             <div class="tag" v-if="isLoading">
-                <span
-                    v-for="(tag, index) in handleTag(handleArticle.articleData.article.tag)"
-                    :key="index"
-                >
+                <span v-for="(tag, index) in handleTag(handleArticle.articleData.article.tag)" :key="index">
                     {{ tag }}
                 </span>
             </div>
@@ -141,20 +134,7 @@ export default {
             const seconds = date.getSeconds().toString().padStart(2, "0"); // 确保两位数
 
             // 将月份转换为缩写格式
-            const monthArray = [
-                "Jan",
-                "Feb",
-                "Mar",
-                "Apr",
-                "May",
-                "Jun",
-                "Jul",
-                "Aug",
-                "Sep",
-                "Oct",
-                "Nov",
-                "Dec"
-            ];
+            const monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const month = monthArray[months];
 
             // 返回格式化的时间字符串
