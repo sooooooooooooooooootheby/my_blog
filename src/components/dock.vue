@@ -57,7 +57,7 @@
                     <div class="button" @click="cutTheme">
                         <i class="iconfont" v-if="isTheme === 0">&#xe635;</i>
                         <i class="iconfont" v-else-if="isTheme === 1">&#xe636;</i>
-                        <i class="iconfont" v-else-if="isTheme === 2">&#xe637;</i>
+                        <!-- <i class="iconfont" v-else-if="isTheme === 2">&#xe637;</i> -->
                     </div>
                 </div>
             </div>
@@ -68,7 +68,6 @@
 <script>
 import { articleStore } from "@/stores/article.js";
 import router from "@/router";
-import { gsap } from "gsap";
 
 export default {
     data() {
@@ -106,7 +105,7 @@ export default {
         // 切换主题
         cutTheme() {
             // 切换 `isTheme` 的值
-            this.isTheme = (this.isTheme + 1) % 3;
+            this.isTheme = (this.isTheme + 1) % 2;
             // 根据 `isTheme` 的值选择一个主题
             let theme = ["light", "dark", "auto"][this.isTheme];
 
