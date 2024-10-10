@@ -13,6 +13,9 @@
                 font-family: JB-Medium, sans-serif;
                 transition: 0.2s;
             }
+            body {
+                overflow: hidden;
+            }
             @font-face {
                 font-family: JB-Medium;
                 src: url("@/assets/typeface/JetBrainsMono-Medium.woff2");
@@ -34,10 +37,85 @@
                 -webkit-text-stroke-width: 0.2px;
                 -moz-osx-font-smoothing: grayscale;
             }
+            .loading {
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 99;
+                background-color: #ffffff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 1;
+                transition: opacity 1s ease;
+            }
+            .loading.fade-out {
+                opacity: 0;
+            }
+            @keyframes loadend {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+            .loader {
+                width: 45px;
+                height: 40px;
+                background: linear-gradient(#fff calc(1 * 100% / 6), #000 0 calc(3 * 100% / 6), #fff 0), linear-gradient(#fff calc(2 * 100% / 6), #000 0 calc(4 * 100% / 6), #fff 0), linear-gradient(#fff calc(3 * 100% / 6), #000 0 calc(5 * 100% / 6), #fff 0);
+                background-size: 10px 400%;
+                background-repeat: no-repeat;
+                animation: matrix 1s infinite linear;
+            }
+
+            @keyframes matrix {
+                0% {
+                    background-position:
+                        0% 100%,
+                        50% 100%,
+                        100% 100%;
+                }
+
+                100% {
+                    background-position:
+                        0% 0%,
+                        50% 0%,
+                        100% 0%;
+                }
+            }
         </style>
     </head>
     <body>
+        <div id="loading" class="loading">
+            <div class="loader"></div>
+        </div>
         <div id="app"></div>
         <script type="module" src="/src/main.js"></script>
+
+        <script>
+            window.addEventListener("load", function () {
+                function fadeOut(element) {
+                    return new Promise((resolve) => {
+                        element.classList.add("fade-out");
+
+                        element.addEventListener("transitionend", function handler() {
+                            element.removeEventListener("transitionend", handler);
+                            resolve();
+                        });
+                    });
+                }
+
+                const loading = document.getElementById("loading");
+                document.body.style.overflowY = "hidden";
+
+                fadeOut(loading).then(() => {
+                    loading.style.display = "none";
+                    document.body.style.overflowY = "auto";
+                });
+            });
+        </script>
     </body>
 </html>
