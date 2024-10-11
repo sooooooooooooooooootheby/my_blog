@@ -33,6 +33,9 @@
             overflow: hidden;
             padding-left: 16px;
             transition: 1s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             .breadcrumb {
                 font-size: 0.7rem;
                 @include font_color("tint-font-color-2");

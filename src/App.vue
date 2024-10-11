@@ -1,7 +1,7 @@
 <template>
     <dock />
     <div class="main">
-        <!-- <router-view /> -->
+        <router-view />
     </div>
     <foot />
 </template>
