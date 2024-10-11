@@ -63,13 +63,18 @@
             </div>
         </div>
     </div>
+    <themeSwitch :theme="isTheme" @cutThemeSwitch="cutThemeSwitch" v-if="isThemeSwitch" />
 </template>
 
 <script>
 import { articleStore } from "@/stores/article.js";
 import router from "@/router";
+import themeSwitch from './themeSwitch.vue';
 
 export default {
+    components: {
+        themeSwitch
+    },
     data() {
         const article = articleStore();
         return {
@@ -90,7 +95,8 @@ export default {
             ],
             isMore: false,
             isTheme: 0,
-            isDockMenu: false
+            isDockMenu: false,
+            isThemeSwitch: false,
         };
     },
     methods: {
@@ -102,8 +108,12 @@ export default {
             }
             router.push("/" + to);
         },
+        cutThemeSwitch() {
+            this.isThemeSwitch = !this.isThemeSwitch;
+        },
         // 切换主题
         cutTheme() {
+            this.cutThemeSwitch();
             // 切换 `isTheme` 的值
             this.isTheme = (this.isTheme + 1) % 2;
             // 根据 `isTheme` 的值选择一个主题
